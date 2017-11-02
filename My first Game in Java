@@ -1,0 +1,84 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication;
+
+/**
+ *
+ * @author Haonan
+ */
+public class JavaApplication extends MiniJava {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        int guthaben = 100;
+        int choose, result, dice1, dice2, bet;
+        int gameon = 1;
+        
+        while (gameon==1){
+
+        bet = read("how big do you want to bet?");
+        while (bet > guthaben) {
+            bet = read("how big do you want to bet? You can only bet how much you have!");
+        }
+        choose = read("Which number do you want to bet?");
+        while (choose <2 || choose>12) {
+            choose = read("Which number do you want to bet? 2-12");
+        }
+        dice1 = dice();
+        dice2 = dice();
+
+        result = dice1 + dice2;
+        if (choose == 7) {
+            if(result==7){write("so good 3 time!");
+            guthaben = guthaben + 2 * bet;}
+            else {
+                write("sorry you lose");
+                guthaben = guthaben - bet;
+            }}
+
+        
+        else if (choose <= 6 && choose >= 2) {
+            if (choose == result){
+            write("so good! 2 time!");
+                guthaben = guthaben + bet;
+            }
+            else if(result<=6 && result>=2){
+                write("So good! 1time!");
+            }
+            else {
+                
+               write("sorry you lose");
+                guthaben = guthaben-bet;
+            }
+ }
+        else if (choose <= 12 && choose > 7){
+            if (choose == result){
+            write("so good! 2 time!");
+            guthaben = guthaben + bet;
+            }
+            else if(result<=12 && result>7){
+                write("So good! 1time!");
+            }
+            else {
+                write("sorry you lose");
+                guthaben = guthaben-bet;
+            }
+        }
+        write("your guthaben ist: "+guthaben);
+        gameon=read("do you wanna continue? 0 is no,1 is yes.");
+                
+        if (guthaben<=0){
+            write("Gameover!");
+            gameon=0;
+        }
+        
+        
+        }
+    
+    }
+}
