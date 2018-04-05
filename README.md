@@ -1,3 +1,3 @@
 # Java
 
-还没传作业，害怕被检测成抄袭- -!
+The Homework of Java Lab Courses made by me.
